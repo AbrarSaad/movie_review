@@ -35,6 +35,10 @@
     <%= form.label :rating %>
     <%= form.text_field :rating, id: :movie_rating %>
   </div>
+   <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image%>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

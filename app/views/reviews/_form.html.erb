@@ -1,4 +1,4 @@
-<%= form_with(model: review, local: true) do |form| %>
+<%= form_for([@movie,@review]) do |form| %>
   <% if review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -12,8 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating, id: :review_rating %>
+   <div id="star-rating"></div>
   </div>
 
   <div class="field">
@@ -25,3 +24,14 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+    $(document).ready(function() {
+
+  $('#star-rating').raty({
+    path: '/assets/',
+      scoreName: "review[rating]"
+  });
+      });
+
+</script>

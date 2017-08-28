@@ -5,16 +5,19 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
   <%= render 'layouts/header' %>
   <div class="container">
-  <% flash.each do |name,msg| %>
-    <%= content_tag(:div, msg, class: "alert-info") %>
+    <% flash.each do |name,msg| %>
+      <%= content_tag(:div, msg, class: "alert-info") %>
     <%end%>
     <%= yield %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:after_js) %>
     </div>
   </body>
 </html>

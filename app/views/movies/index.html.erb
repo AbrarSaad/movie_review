@@ -15,9 +15,9 @@
     <div class="home-page-movies__first-row row">
       <% if !user_signed_in? %>
         <div class="jumbotron">
-          <h1>Your Favorit Movies Reviewed</h1>
+          <h2>Your Favorit Movies Reviewed</h2>
           <p> My heart you should make sign up. </p>
-          <p><%= link_to "Sign Up my heart", new_user_registration_path,class: "btn btn-default btn-lg" %> </p>
+          <p><%= link_to "Sign Up my heart", new_user_registration_path,class: "btn btn-success" %> </p>
         </div>
       <% end %>
     </div>

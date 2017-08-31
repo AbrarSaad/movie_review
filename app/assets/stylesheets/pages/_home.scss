@@ -62,7 +62,7 @@
 
 
 .image {
-    border: 1px solid #ddd;
+    border: 1px solid #FF5733;
     border-radius: 4px;
     padding: 2px;
     width: 170px;
@@ -76,7 +76,7 @@
 }
 
 .image:hover {
-    box-shadow: 0 0 2px 2px rgba(0, 140, 186, 0.5);
+    box-shadow: 0 0 2px 2px #FF5733;
 
           -webkit-transform: rotate(-10deg);
      -moz-transform: rotate(-10deg);

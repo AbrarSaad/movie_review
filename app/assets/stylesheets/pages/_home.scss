@@ -95,9 +95,9 @@
 .home-page-movies__first-row {
  h1 {
     color: #FF5733;
-    padding-bottom: 25px;
     border-bottom:  10px dotted #FF5733;
     line-height: 2;
+    font-size: 30px;
   }
 
 }
@@ -176,4 +176,8 @@ border-color: #FF5740 !important;
 .home-page-movies__container
 {
   width:96%;
+}
+
+h1, h2, h3 {
+  color: #FF5733 !important;
 }

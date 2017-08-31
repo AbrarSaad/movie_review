@@ -1,5 +1,5 @@
 <%= form_for([@movie,@review]) do |form| %>
-  <% if review.errors.any? %>
+  <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
@@ -16,7 +16,7 @@
   </div>
 <br>
 <div>
-    <%= form.text_area :comment, class: "form-control", placeholder: "comment"%>
+    <%= form.text_area :comment, class: "form-control", placeholder: "Comments"%>
   </div>
 <br>
 <br>
@@ -26,13 +26,15 @@
 
 <% end %>
 <br>
-<script>
+
+<% content_for :after_js do %>
+  <script>
     $(document).ready(function() {
 
-  $('#star-rating').raty({
-    path: '/assets/',
-      scoreName: "review[rating]"
-  });
+      $('#star-rating').raty({
+        path: '/assets/',
+          scoreName: "review[rating]"
       });
-
-</script>
+    });
+  </script>
+<% end %>

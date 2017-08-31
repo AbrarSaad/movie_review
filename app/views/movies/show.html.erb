@@ -1,43 +1,37 @@
 <div class="container">
 
    <div class="row">
-<div class="col-xs-4 col-xs-offset-4">
- <div class="size_search">
-      <div class="search">
-        <form action="/movies"  role="Search">
-          <input type="text" class="searchTerm2" placeholder="Search movies" name="search">
-          <button  type="submit" class="searchButton2">
-            <i class="fa fa-search"></i></i>
-          </button>
-        </form>
+      <div class="col-xs-4 col-xs-offset-4">
+       <div class="size_search">
+            <div class="search">
+              <form action="/movies"  role="Search">
+                <input type="text" class="searchTerm2" placeholder="Search movies" name="search">
+                <button  type="submit" class="searchButton2">
+                  <i class="fa fa-search"></i></i>
+                </button>
+              </form>
+            </div>
+        </div>
       </div>
-    </div>
-</div>
-</div>
+  </div>
 <br>
-<div class="panel panel-default">
-  <div class="panel-body">
 
 
-<div class="row">
-      <div class="col-md-4">
+  <div class="row">
+      <div class="col-md-offset-1 col-md-4">
         <%= image_tag @movie.image.url(:medium) %>
         <div class="table-responsive">
           <table class="table">
           <tbody>
              <tr>
-        <td> <div class="star-rating" data-score= <%= @avg_review %> ></td>
-           <td><em><%= "#{@reviews.length} reviews" %></em></td>
+              <td>
+              <div class="star-rating" data-score="<%= @avg_review %>" ></td>
+              <td><em><%= "#{@reviews.length} reviews" %></em></td>
              </tr>
 
             <tr>
               <td><strong>Title:</strong></td>
               <td><%= @movie.title %></td>
-            </tr>
-            <tr>
-               <td><strong>Description:</strong></td>
-               <td style="text-decoration: none;
-  color:black !important;"><%= link_to "youtube",@movie.description, target: :_blank %></td>
             </tr>
             <tr>
            <td> <strong>Movie length:</strong></td>
@@ -53,50 +47,67 @@
             </tr>
           </tbody>
         </table>
-        <%= link_to "Write a Review", new_movie_review_path(@movie),class: "btn btn-success" %>
       </div>
     </div>
-    <div class="col-md-7 col-md-offset-1">
-      <h1 class="review_title"><%= @movie.title %> </h1>
-      <p> <%= @movie.description %> </p>
+    <div class="col-md-offset-1 col-md-5">
+      <h1 class="review_title"><%= @movie.title %></h1>
+      <div class="videowrapper">
+        <iframe width="560" height="315" src="<%= @movie.description %>" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <br>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newReview">Write a Review</button>
+      <%= link_to 'Edit', edit_movie_path(@movie) ,class: "btn btn-default" %> |
+      <%= link_to 'Back', movies_path ,class: "btn btn-default" %>
 
       <% if @reviews.blank? %>
-       <h3>No reviews just yet , would you like to add the first!</h3>
-
-   <%= link_to 'Write Review', new_movie_review_path(@movie),class: "btn btn-success"%>
-
-
+        <h3>No reviews just yet , would you like to add the first!</h3>
        <% else %>
         <% @reviews.each do |review| %>
         <div class="reviews">
-        <div class="star-rating" data-score=<%= review.rating %> > </div>
-        <p> <%= review.comment %></p>
+          <div class="star-rating" data-score="<%= review.rating %>" > </div>
+          <p><%= review.comment %></p>
         </div>
         <% end %>
-        <% end %>
+      <% end %>
    </div>
   </div>
 </div>
+
+
+<!-- Modal -->
+<div id="newReview" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Write a Review</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'reviews/form'  %>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_movie_path(@movie) ,class: "btn btn-default btn-lg" %> |
-<%= link_to 'Back', movies_path ,class: "btn btn-default btn-lg" %>
+<div class="video-background">
+    <div class="video-foreground">
+      <iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ" frameborder="0" allowfullscreen></iframe>
+    </div>
 </div>
+
 <% content_for :after_js do %>
-
-
-<script>
+  <script>
     $(document).ready(function() {
-
-  $('.star-rating').raty({
-    path: '/assets/',
-     readOnly: true,
-      score: function() {
-    return $(this).attr('data-score');
-  }
-  });
+      $('.star-rating').raty({
+        path: '/assets/',
+         readOnly: true,
+          score: function() {
+        return $(this).attr('data-score');
+      }
       });
-
-</script>
-
+    });
+  </script>
 <% end %>

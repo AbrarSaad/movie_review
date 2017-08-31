@@ -16,6 +16,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @reviews = Review.where(movie_id: @movie.id).order("created_at DESC")
 
     if @reviews.average(:rating).nil?

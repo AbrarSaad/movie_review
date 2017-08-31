@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
   IMDB_URL = "http://www.imdb.com/find?s=all"
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  layout "application"
   def index
     if params[:search] && params[:search].present?
       @movies = Movie.where("title ILIKE ?",'%'+params[:search]+'%')

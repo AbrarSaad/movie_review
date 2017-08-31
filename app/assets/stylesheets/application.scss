@@ -14,8 +14,6 @@
  *= require_self
  */
 
-
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
@@ -23,6 +21,7 @@
 
 @import "config/bootstrap_variables";
 @import "config/variables";
+@import "config/bootstrap_overrides";
 
 @import "components/index";
 @import "layouts/index";
@@ -39,26 +38,3 @@
   padding-bottom: 20px;
 }
 
-.btn-danger
-{
-  background-color:#1Ea896;
-  border-color:none;
-  color:white;
-}
-.btn-danger:hover
-{
-   background-color: #04B486;
-}
-.btn-block
-{ margin: 10;
-
-  background-color:#FF5733;
-  border-color:#FF5733;
-  color:white;
-  width: 100px;
-}
-.btn-block:hover
-{
-background-color:#FF5740;
-border-color:#FF5733;
-}

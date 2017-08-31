@@ -10,37 +10,47 @@
       </ul>
     </div>
   <% end %>
+<br>
+  <div>
+    <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
+  </div>
+<br>
+
+  <div>
+    <%= form.text_area :description,  class: "form-control", placeholder: "description" %>
+  </div>
+<br>
+
+  <div >
+    <%= form.text_field :movie_length, class: "form-control", placeholder: "movie_length" %>
+  </div>
+<br>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :movie_title %>
+    <%= form.text_field :director, class: "form-control", placeholder: "director" %>
   </div>
+<br>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :movie_description %>
+    <%= form.text_field :rating, class: "form-control", placeholder: "rating"%>
   </div>
+  <br>
 
-  <div class="field">
-    <%= form.label :movie_length %>
-    <%= form.text_field :movie_length, id: :movie_movie_length %>
-  </div>
-
-  <div class="field">
-    <%= form.label :director %>
-    <%= form.text_field :director, id: :movie_director %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.text_field :rating, id: :movie_rating %>
-  </div>
    <div class="field">
     <%= form.label :image %>
+     <br>
     <%= form.file_field :image%>
   </div>
-
+<br>
+  <div class="field"
+    <%= form.label :category %>
+     <br>
+    <%= form.select(:category, Movie.categories.keys.map {|category| [category.titleize,category]}) %>
+  </div>
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary btn-block" %>
   </div>
 <% end %>
+
+

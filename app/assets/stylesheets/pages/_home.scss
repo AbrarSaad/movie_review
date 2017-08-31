@@ -1,0 +1,127 @@
+.home-page-banner__wrapper {
+  background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 50%),
+   image-url("banar.jpg");
+
+  color: white;
+  text-align: center;
+  height: 50vh;
+  width: 100%;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position:center;
+}
+
+.home-page-banner__content {
+
+}
+
+.home-page-banner__title {
+  h1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+
+
+  p {
+    font-size: 25px;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    opacity: 0.6;
+    margin-bottom: 30px;
+  }
+}
+
+.home-page-banner__search {
+
+}
+
+
+.home-page-movies__wrapper {
+
+}
+
+.home-page-movies__container {
+
+}
+
+.home-page-movies__left-column {
+
+
+
+
+}
+
+.home-page-movies__right-column {
+
+
+}
+
+
+.image {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 2px;
+    width: 170px;
+     -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+           display: inline-block;
+
+}
+
+.image:hover {
+    box-shadow: 0 0 2px 2px rgba(0, 140, 186, 0.5);
+
+          -webkit-transform: rotate(-10deg);
+     -moz-transform: rotate(-10deg);
+       -o-transform: rotate(-10deg);
+      -ms-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+
+}
+.thumbnail
+{
+  width:180px;
+
+}
+.text_lable
+{
+    text-shadow: 1px 1px #FF5733;
+
+    padding:10px;
+    margin: 10px;
+}
+.home-page-movies__right-column {
+
+}
+
+ h2{
+    color:white;
+  }
+.devise-layout__content
+{
+  margin-top:-50px;
+  margin-bottom: 50px;
+}
+.jumbotron
+{
+  margin-top:50px;
+}
+.btn-success
+{
+background-color :#FF5733 !important;
+border-color: #FF5740 !important;
+}
+.btn-success:hover{
+  background-color :#FF5740 !important;
+}
+.home-page-movies__container
+{
+  width:96%;
+}

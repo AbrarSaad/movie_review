@@ -22,3 +22,6 @@
 
 .byebug_history
 /public/system/movies/images
+
+# Ignore application configuration
+/config/application.yml

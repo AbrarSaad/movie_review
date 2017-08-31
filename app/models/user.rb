@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :movies
   has_many :reviews, dependent: :destroy
+  mount_uploader :photo, PhotoUploader
 end

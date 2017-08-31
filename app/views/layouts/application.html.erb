@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>MovieReview</title>
     <%= csrf_meta_tags %>
 
@@ -9,15 +10,19 @@
   </head>
 
   <body>
-  <%= render 'layouts/header' %>
-  <div class="container">
-    <% flash.each do |name,msg| %>
-      <%= content_tag(:div, msg, class: "alert-info") %>
-    <%end%>
-    <%= yield %>
 
+  <div class="application-layout__wrapper">
+    <%= render 'layouts/shared/navbar' %>
+    <%= render 'layouts/shared/flashes' %>
+    <%= yield %>
+  </div>
+
+  <%= render 'layouts/shared/footer' %>
+</div>
+</div>
+    <%= yield %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= yield(:after_js) %>
-    </div>
+
   </body>
 </html>

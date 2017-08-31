@@ -13,23 +13,52 @@
  *= require_tree .
  *= require_self
  */
+
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
-body
+@import "config/bootstrap_variables";
+@import "config/variables";
+
+@import "components/index";
+@import "layouts/index";
+@import "pages/index";
+@import "vendor/index";
+
+
+.field
 {
-background: #AA4B47
+  color:#337ab7;
 }
-.review_title
+.space
 {
-  margin: 0 0 20px 0;
-}
-.reviews
-{
-  padding: 15px 0;
-  border-bottom: 1px solid #EAEAEA
+  padding-bottom: 20px;
 }
 
-  .star-rating{
-    padding-bottom:8px;
-  }
+.btn-danger
+{
+  background-color:#1Ea896;
+  border-color:none;
+  color:white;
+}
+.btn-danger:hover
+{
+   background-color: #04B486;
+}
+.btn-block
+{ margin: 10;
+
+  background-color:#FF5733;
+  border-color:#FF5733;
+  color:white;
+  width: 100px;
+}
+.btn-block:hover
+{
+background-color:#FF5740;
+border-color:#FF5733;
+}

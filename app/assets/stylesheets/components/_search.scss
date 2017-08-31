@@ -1,0 +1,95 @@
+body{
+  background-color: #222;
+}
+
+.search {
+  width: 100%;
+  position: relative
+
+}
+
+.size_search
+{
+  width:100% ;
+  position: relative;
+  padding-top: 30px;
+
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 2px solid #FF5733;
+  padding: 15px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #FF5733;
+  margin-left: -40px;
+  margin-top: 150px;
+
+
+}
+.searchTerm2 {
+  float: left;
+  width: 100%;
+  border: 2px solid #FF5733;
+  padding: 15px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #FF5733;
+  margin-left: -40px;
+
+
+
+}
+
+.searchTerm:focus{
+  color: #FF5733;
+}
+
+.searchButton {
+  position: absolute;
+  right: -50px;
+  width: 80px;
+  height: 36px;
+  border: 2px solid #FF5733;
+  background: #FF5733;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 150px;
+
+}
+.searchButton2 {
+  position: absolute;
+  right: -50px;
+  width: 80px;
+  height: 36px;
+  border: 2px solid #FF5733;
+  background: #FF5733;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+
+
+}
+.searchButton:hover
+{
+  background: #FF5700;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

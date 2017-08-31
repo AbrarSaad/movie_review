@@ -1,5 +1,12 @@
-<h1>New Review</h1>
-
+<center>
+<h2>New Review</h2>
+</center>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
 <%= render 'form', review: @review %>
+</div>
 
-<%= link_to 'Back', movie_path(@movie) %>
+</div>
+
+<%= link_to 'Back', movie_path(@movie),class: "btn btn-default btn-lg"%>
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>MovieReview</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+
+  <div class="devise-layout__wrapper">
+    <%= render 'layouts/shared/navbar' %>
+    <%= render 'layouts/shared/flashes' %>
+
+    <div class="devise-layout__container container">
+      <div class="devise-layout__content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'layouts/shared/footer' %>
+</div>
+</div>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:after_js) %>
+
+  </body>
+</html>

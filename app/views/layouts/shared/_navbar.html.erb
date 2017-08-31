@@ -1,0 +1,55 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/" class="navbar-wagon-brand">
+    <%= image_tag 'logo.png' %>
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Collect the nav links -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      <%= link_to "Movie Reviews", root_path, class: "navbar-brand" %>
+      <% if user_signed_in? %>
+        <li ><%= link_to "New Movie", new_movie_path, class: "active" %></li>
+        <li><%= link_to "Account", edit_user_registration_path %></li>
+        <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path, class: "active" %></li>
+        <li><%= link_to "Sign In", new_user_session_path, class: "active" %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
+    <!-- Profile picture with dropdown list -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+
+      <% if current_user %>
+        <% @photo = current_user.photo %>
+        <%= image_tag @photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Profile" , user_path(current_user) %></li>
+          <li> <%= link_to "my_movies", user_my_movies_path(current_user) %>  </li>
+         <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "active" %></li>
+        </ul>
+      <% else %>
+        <% @photo = "http://placehold.it/30/30" %>
+        <%= image_tag @photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%= link_to "New Movie", new_movie_path, class: "active" %></li>
+        <li><%= link_to "Account", edit_user_registration_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

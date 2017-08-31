@@ -14,17 +14,18 @@
   <div class="field">
    <div id="star-rating"></div>
   </div>
-
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment, id: :review_comment %>
+<br>
+<div>
+    <%= form.text_area :comment, class: "form-control", placeholder: "comment"%>
   </div>
-
+<br>
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary btn-block"%>
   </div>
-<% end %>
 
+<% end %>
+<br>
 <script>
     $(document).ready(function() {
 

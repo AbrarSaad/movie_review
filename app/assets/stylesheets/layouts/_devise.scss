@@ -1,0 +1,33 @@
+.devise-layout__wrapper {
+  min-height: calc(100vh - 100px);
+  width: 100%;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+}
+
+
+.devise-layout__container {
+  justify-content: center;
+  margin-top: 90px;
+  padding:40px;
+
+  h2{
+    color:#FF5733;
+  }
+
+  h3{
+    color:#FF5733
+  }
+
+  p{
+    color:#337ab7;
+  }
+
+}
+
+
+.devise-layout__content {
+ padding: 20px;
+ background-color:#141414;
+
+
+}

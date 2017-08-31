@@ -1,16 +1,65 @@
-<% if !user_signed_in? %>
-<div class="jumbotron">
-<h1>Your Favorit Movies Reviewed</h1>
-<p> My heart you should make sign up. </p>
-<p><%= link_to "Sign Up my heart", new_user_registration_path, class: "btn btn-primary btn-lg" %> </p>
-<% end %>
 
-<div class="row">
-  <% @movies.each do |movie| %>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+<div class="home-page-banner__wrapper">
+  <div class="home-page-banner__content col-xs-6">
+    <div class="home-page-banner__title">
+    <h1> @br@r Movies </h1>
+    </div>
+    <div class="home-page-banner__search">
+      <%= render 'shared/components/search' %>
     </div>
   </div>
-  <% end %>
 </div>
+
+<div class="home-page-movies__wrapper">
+  <div class="home-page-movies__container">
+    <div class="home-page-movies__first-row row">
+      <% if !user_signed_in? %>
+        <div class="jumbotron">
+          <h1>Your Favorit Movies Reviewed</h1>
+          <p> My heart you should make sign up. </p>
+          <p><%= link_to "Sign Up my heart", new_user_registration_path,class: "btn btn-default btn-lg" %> </p>
+        </div>
+      <% end %>
+    </div>
+    <div class="home-page-movies__second-row row">
+      <div class="home-page-movies__left-column col-md-6">
+        <center><div class="text_lable"><font  color="white"><h1>Arabic Movies</h1></font></div></center>
+        <% @movies.where(category: :arabic).each do |movie| %>
+          <div class="col-sm-12 col-md-4">
+            <div class="thumbnail">
+              <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="home-page-movies__right-column col-md-6">
+      <center><div class="text_lable"><font  color="white"><h1>International Movies</h1></font></div></center>
+        <% @movies.where(category: :international).each do |movie| %>
+          <div class="col-sm-12 col-md-4">
+            <div class="thumbnail">
+              <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+
+</div>
+</div>
+</div>
+<br>
+<center>
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+</center>
+<div class="video-background">
+    <div class="video-foreground">
+      <iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+<br>

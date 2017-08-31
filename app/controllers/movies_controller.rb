@@ -1,17 +1,23 @@
 class MoviesController < ApplicationController
+  IMDB_URL = "http://www.imdb.com/find?s=all"
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   def index
-    @movies = Movie.all
-      if params[:search] && params[:search] != ''
-      @movies = @movies.where("title ILIKE ?",'%'+params[:search]+'%')
+    if params[:search] && params[:search].present?
+      @movies = Movie.where("title ILIKE ?",'%'+params[:search]+'%')
+      if !@movies.present?
+        url = "#{IMDB_URL}&q=#{params[:search]}"
+        redirect_to url and return ;
+      end
+    else
+      @movies = Movie.all
     end
   end
 
   def show
     @reviews = Review.where(movie_id: @movie.id).order("created_at DESC")
 
-    if @reviews.blank?
+    if @reviews.average(:rating).nil?
       @avg_review = 0
     else
       @avg_review = @reviews.average(:rating).round(2)
@@ -25,6 +31,9 @@ class MoviesController < ApplicationController
   def edit
   end
 
+  def my_movies
+    @movies = Movie.all.where(user: current_user)
+  end
   # POST /movies
   # POST /movies.json
   def create
@@ -73,6 +82,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :description, :movie_length, :director, :rating, :image)
+      params.require(:movie).permit(:title, :description, :movie_length, :director, :rating, :image, :category)
     end
 end

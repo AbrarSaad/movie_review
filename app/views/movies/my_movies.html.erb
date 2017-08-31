@@ -1,0 +1,15 @@
+<div class="container">
+<div class="row">
+
+
+<% @movies.each do |m| %>
+<div class="col-md-3 ">
+<p> <%=image_tag m.image ,class: "my_profile_image"%></p>
+
+<p> <%= m.title %></p>
+  <p><%= m.movie_length %></p>
+</div>
+<% end %>
+
+</div>
+</div>

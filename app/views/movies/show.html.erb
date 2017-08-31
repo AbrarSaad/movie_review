@@ -1,20 +1,43 @@
+<div class="container">
+
+   <div class="row">
+<div class="col-xs-4 col-xs-offset-4">
+ <div class="size_search">
+      <div class="search">
+        <form action="/movies"  role="Search">
+          <input type="text" class="searchTerm2" placeholder="Search movies" name="search">
+          <button  type="submit" class="searchButton2">
+            <i class="fa fa-search"></i></i>
+          </button>
+        </form>
+      </div>
+    </div>
+</div>
+</div>
+<br>
 <div class="panel panel-default">
   <div class="panel-body">
-    <div class="row">
+
+
+<div class="row">
       <div class="col-md-4">
         <%= image_tag @movie.image.url(:medium) %>
-        <div class="star-rating" data-score= <%= @avg_review %> > </div>
-        <em><%= "#{@reviews.length} reviews" %></em>
         <div class="table-responsive">
           <table class="table">
           <tbody>
+             <tr>
+        <td> <div class="star-rating" data-score= <%= @avg_review %> ></td>
+           <td><em><%= "#{@reviews.length} reviews" %></em></td>
+             </tr>
+
             <tr>
               <td><strong>Title:</strong></td>
               <td><%= @movie.title %></td>
             </tr>
             <tr>
                <td><strong>Description:</strong></td>
-               <td><%= @movie.description %></td>
+               <td style="text-decoration: none;
+  color:black !important;"><%= link_to "youtube",@movie.description %></td>
             </tr>
             <tr>
            <td> <strong>Movie length:</strong></td>
@@ -22,7 +45,7 @@
             </tr>
             <tr>
             <td><strong>Director:</strong></td>
-            <td><%= @movie.director %></td>
+            <td ><%= @movie.director %></td>
             </tr>
              <tr>
             <td><strong>Rating:</strong></td>
@@ -30,7 +53,7 @@
             </tr>
           </tbody>
         </table>
-        <%= link_to "Write a Review", new_movie_review_path(@movie) %>
+        <%= link_to "Write a Review", new_movie_review_path(@movie),class: "btn btn-success" %>
       </div>
     </div>
     <div class="col-md-7 col-md-offset-1">
@@ -39,7 +62,10 @@
 
       <% if @reviews.blank? %>
        <h3>No reviews just yet , would you like to add the first!</h3>
-       <%= link_to 'Write Review', new_movie_review_path(@movie),class: "btn btn-danger" %>
+
+   <%= link_to 'Write Review', new_movie_review_path(@movie),class: "btn btn-success"%>
+
+
        <% else %>
         <% @reviews.each do |review| %>
         <div class="reviews">
@@ -53,10 +79,12 @@
 </div>
 </div>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
-
+<%= link_to 'Edit', edit_movie_path(@movie) ,class: "btn btn-default btn-lg" %> |
+<%= link_to 'Back', movies_path ,class: "btn btn-default btn-lg" %>
+</div>
 <% content_for :after_js do %>
+
+
 <script>
     $(document).ready(function() {
 

@@ -16,13 +16,13 @@
 
 
 
+@import "config/bootstrap_variables";
+@import "config/variables";
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-@import "config/bootstrap_variables";
-@import "config/variables";
 
 @import "components/index";
 @import "layouts/index";

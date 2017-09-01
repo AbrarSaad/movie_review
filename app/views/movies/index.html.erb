@@ -33,7 +33,7 @@
         <% @movies.where(category: 1).each do |movie| %>
         <div class="col-sm-12 col-md-4">
           <div class="thumbnail">
-            <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+            <%= link_to (cl_image_tag movie.image, height: 100, width: 200, class: 'image'), movie %>
           </div>
         </div>
         <% end %>
@@ -43,7 +43,7 @@
         <% @movies.where(category: 2).each do |movie| %>
         <div class="col-sm-12 col-md-4">
           <div class="thumbnail">
-            <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+            <%= link_to (cl_image_tag movie.image, height: 100, width: 200, class: 'image'), movie %>
           </div>
         </div>
         <% end %>
